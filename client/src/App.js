@@ -16,15 +16,25 @@ class CurrentWeather extends Component {
         }
     }
     componentDidMount(){
-        fetch('/current-weather')
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            this.setState={name:data.name}
-        })
+      fetch('localhost:8000/weather/current-weather')
+      .then((res)=>res.json())
+      .then((data)=>{
+          console.log(data);
+          this.setState = {
+            country:data.country,
+            name:data.name, 
+            icon:data.icon, 
+            description:data.description, 
+            temp:data.temp, 
+            temp_min:data.tempmin, 
+            temp_max:data.tempmax, 
+            humidity:data.humidity
+        }
+      })
     }
-
+    
     render(){
+      
         const {country}=this.state;
         const {name}=this.state;
         const {icon}=this.state;
