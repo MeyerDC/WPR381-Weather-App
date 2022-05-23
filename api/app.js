@@ -1,17 +1,17 @@
 require('dotenv').config();
-
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
-
 let express = require('express');
 let app = express();
-
+const PORT = process.env.PORT || 8000;
+const HOST = process.env.HOST;
 app.use(express.json());
-
-app.listen(PORT, ()=>{
-    console.log(`Listening on http://${HOST}:${PORT}`);
-})
+try {
+    app.listen(PORT, ()=>{
+        console.log(`Listening on http://${HOST}:${PORT}`);
+    }) 
+} catch (error) {
+    console.log(error);
+}
 
 const weatherRouter = require('./routes/weather');
 
-app.use('/weather',weatherRouter)
+app.use('/weather',weatherRouter);
