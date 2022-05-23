@@ -4,7 +4,14 @@ class CurrentWeather extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            country, name, icon, description, temp, temp_min, temp_max, humidity
+            country:"",
+            name:"", 
+            icon:"", 
+            description:"", 
+            temp:"", 
+            temp_min:"", 
+            temp_max:"", 
+            humidity:""
         }
     }
     componentDidMount(){
@@ -43,3 +50,4 @@ class CurrentWeather extends Component {
         )
     }
 }
+export default CurrentWeather;
